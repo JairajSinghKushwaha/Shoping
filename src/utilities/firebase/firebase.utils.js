@@ -7,7 +7,9 @@ import {
   signInWithPopup, 
   GoogleAuthProvider,
   createUserWithEmailAndPassword ,
-  signInWithEmailAndPassword
+  signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged
 } from 'firebase/auth';
 
 // Your web app's Firebase configuration
@@ -26,6 +28,7 @@ const googleProvider = new GoogleAuthProvider();
 googleProvider.setCustomParameters({
     prompt: "select_account"
 });
+
 // auth is singleton
 export const auth = getAuth();
 export const signInWithGooglePopup = () => signInWithPopup(auth, googleProvider);
@@ -48,16 +51,23 @@ export const createUserDocumentFromAuth = async (userAuth, additionalInformation
   }
   return userDocRef;
 }
+
 export const createAuthUserWithEmailAndPassword = async(emailId, password) => {
   if(!emailId || !password) { 
   return;
-}
-  return await createUserWithEmailAndPassword(auth, emailId, password);
+  }
+return await createUserWithEmailAndPassword(auth, emailId, password);
 }
 
 export const signInAuthUserWithEmailAndPassword = async(emailId, password) => {
   if(!emailId || !password) { 
-  return;
+    return;
+  }
+return await signInWithEmailAndPassword(auth, emailId, password);
 }
-  return await signInWithEmailAndPassword(auth, emailId, password);
+
+export const signOutUser = async () => await signOut(auth);
+
+export const onAuthStateChangedListener = (callback) => {
+onAuthStateChanged(auth,callback);
 }
