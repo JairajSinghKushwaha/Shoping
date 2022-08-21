@@ -1,4 +1,4 @@
-import './sign-up-form.style.scss';
+import {SignUpContainer} from './sign-up-form.style.jsx';
 import { useState } from 'react';
 import FormInput from '../form-input/form-input.component';
 import Button from '../button/button.component';
@@ -40,46 +40,39 @@ const SignUpForm = () => {
     }
 
     return(
-        <div className='sign-up-container'>
+        <SignUpContainer>
             <h1>Don't have an account?</h1>
-            <span>Sign up with your email and password</span>
+            <h2>Sign up with your email and password</h2>
             <form onSubmit={handleSubmit}>
 
                 <FormInput
-                 label="Display Name"
-                 type="text"
-                 required
-                 onChange={handleChange} 
-                 value={displayName} 
-                 name="displayName"
+                 label="Display Name" type="text"
+                 required onChange={handleChange} 
+                 value={displayName} name="displayName"
                 />
+
                 <FormInput
-                 label="Email"
-                 type="email"
-                 required
-                 onChange={handleChange} 
-                 value={email} 
-                 name="email"
+                 label="Email" type="email"
+                 required onChange={handleChange} 
+                 value={email} name="email"
                 />
+
                 <FormInput
-                 label="Password"
-                 type="password"
-                 required
-                 onChange={handleChange} 
-                 value={password} 
-                 name="password"
+                 label="Password" type="password"
+                 required onChange={handleChange} 
+                 value={password} name="password"
                 />
+
                 <FormInput
-                 label="Confirm Password"
-                 type="password"
-                 required
-                 onChange={handleChange} 
-                 value={confirmPassword} 
-                 name="confirmPassword"
+                 label="Confirm Password" type="password"
+                 required onChange={handleChange} 
+                 value={confirmPassword} name="confirmPassword"
                 />
+
                 <Button type="submit">SIGN UP</Button>
+
             </form>
-        </div>
+        </SignUpContainer>
     );
 }
 export default SignUpForm;
