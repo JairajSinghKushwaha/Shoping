@@ -23,17 +23,17 @@ import {
 } from 'firebase/auth';
 
 // Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyCHThPCnl4IQh_q3jOItroWdzIqntNlxgQ",
-  authDomain: "crwn-shop-db-563be.firebaseapp.com",
-  projectId: "crwn-shop-db-563be",
-  storageBucket: "crwn-shop-db-563be.appspot.com",
-  messagingSenderId: "463121826325",
-  appId: "1:463121826325:web:2f10fb0debdd26ae04041c"
-};
+// const firebaseConfig = {
+//   apiKey: "AIzaSyCHThPCnl4IQh_q3jOItroWdzIqntNlxgQ",
+//   authDomain: "crwn-shop-db-563be.firebaseapp.com",
+//   projectId: "crwn-shop-db-563be",
+//   storageBucket: "crwn-shop-db-563be.appspot.com",
+//   messagingSenderId: "463121826325",
+//   appId: "1:463121826325:web:2f10fb0debdd26ae04041c"
+// };
 
 // Initialize Firebase
-const firebaseApp = initializeApp(firebaseConfig);
+//const firebaseApp = initializeApp(firebaseConfig);
 const googleProvider = new GoogleAuthProvider();
 googleProvider.setCustomParameters({
     prompt: "select_account"
@@ -46,7 +46,7 @@ export const signInWithGoogleRedirect = () => signInWithRedirect(auth, googlePro
 export const db = getFirestore();
 
 export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
-  const collectionRef = collection(db, collectionKey);
+  //const collectionRef = collection(db, collectionKey);
   const batch = writeBatch(db);
   // objectsToAdd.forEach(object => {
   //   const docRef = doc(collectionRef, object.title.toLowerCase());
