@@ -23,11 +23,11 @@ const CheckoutItem = ({cartItem}) => {
               <img src={imageUrl} alt={`${name}`}/>
             </ImageContainer>
             <Name> {name} </Name>
-            <Arrow onClick={addCartHandler}> &#10094; </Arrow> 
-                <Quantity>                
+                <Quantity>       
+                <Arrow onClick={addCartHandler}>&#10094;</Arrow>          
                   {quantity} 
+                  <Arrow onClick={removeCartHandler}>&#10095;</Arrow>
                 </Quantity>
-            <Arrow onClick={removeCartHandler}> &#10095; </Arrow>
             <Price> {price} </Price>
             <RemoveButton onClick={clearCartHandler}> &#x2715;</RemoveButton>
         </CheckoutItemContainer>
